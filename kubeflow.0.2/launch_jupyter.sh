@@ -1,0 +1,1 @@
+kubectl port-forward service/tf-hub-lb -n default 8080:80 
