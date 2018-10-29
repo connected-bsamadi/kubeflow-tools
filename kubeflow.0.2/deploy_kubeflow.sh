@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export GITHUB_TOKEN=9aa39fbf29100e1cf8965a0397c038597dd07191
+export GITHUB_TOKEN=[YOUR_GITHUB_TOKEN]
 
 # list all projects for your Google Cloud Platform account
 gcloud projects list
