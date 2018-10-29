@@ -8,6 +8,7 @@ export PROJECT=ontario-2018
 export ZONE=us-central1-c
 
 export KUBEFLOW_REPO=kubeflow_repo
+export KUBEFLOW_REPO="`pwd`/${KUBEFLOW_REPO}"
 export KUBEFLOW_TAG=master
 
 if [[ ! -d "${KUBEFLOW_REPO}" ]]; then
@@ -17,10 +18,6 @@ if [[ ! -d "${KUBEFLOW_REPO}" ]]; then
   cd ..
 fi
 
-export KUBEFLOW_REPO="`pwd`/${KUBEFLOW_REPO}"
-
-# export CONFIG_FILE="cluster-kubeflow.yaml"
-# gcloud deployment-manager --project=${PROJECT} deployments create ${KFAPP} --config=${CONFIG_FILE}
 ${KUBEFLOW_REPO}/scripts/kfctl.sh init ${KFAPP} --platform gcp --project ${PROJECT}
 
 cd ${KFAPP}
@@ -30,6 +27,23 @@ ${KUBEFLOW_REPO}/scripts/kfctl.sh generate k8s
 ${KUBEFLOW_REPO}/scripts/kfctl.sh apply k8s
 cd ..
 
-kubectl -n kubeflow get  all
+# Get all the services
+kubectl -n ${KFAPP} get  all
+
+# Look at all pods
 kubectl get pod -n ${KFAPP}
-# https://kubeflow.endpoints.ontario-2018.cloud.goog/hub
+
+# Look at the envoy pods
+kubectl -n ${KFAPP} get pods -l service=envoy
+
+# Check the central dashboard
+kubectl get pods -l app=centraldashboard
+
+# Check the endpoint
+kubectl get ingress envoy-ingress
+
+# Describe the ingress endpoint
+kubectl describe ingress envoy-ingress
+
+# Get secret
+kubectl get secret
