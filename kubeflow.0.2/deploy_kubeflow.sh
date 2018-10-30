@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export GITHUB_TOKEN=[YOUR_GITHUB_TOKEN]
+#export GITHUB_TOKEN=[YOUR_GITHUB_TOKEN]
 
 # list all projects for your Google Cloud Platform account
 gcloud projects list
@@ -37,5 +37,7 @@ ks generate core kubeflow-core --name=kubeflow-core --cloud=gke
 
 # apply component to our cluster
 ks apply cloud -c kubeflow-core
+
+cd ..
 
 kubectl get all 

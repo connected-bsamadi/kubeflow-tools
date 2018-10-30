@@ -1,7 +1,13 @@
 #!/bin/bash
 
+# project id
+PROJECT_ID=ontario-2018
+
 # choose a unique name for your model's bucket
 BUCKET_NAME=ontario-2018-kubeflow
+
+# get the user email
+IAM_EMAIL=$(gcloud config get-value account)
 
 # create the GCS bucket
 gsutil mb gs://$BUCKET_NAME/
