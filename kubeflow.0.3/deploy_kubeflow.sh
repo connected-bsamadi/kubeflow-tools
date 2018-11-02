@@ -3,7 +3,7 @@
 # export CLIENT_ID=[CLIENT_ID]
 # export CLIENT_SECRET=[CLIENT_SECRET]
 
-export KFAPP=kubeflow
+export KFAPP=dashboard
 export PROJECT=ontario-2018
 export ZONE=us-central1-c
 

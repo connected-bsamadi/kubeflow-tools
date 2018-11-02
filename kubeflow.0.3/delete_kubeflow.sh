@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export KFAPP=kubeflow
+export KFAPP=dashboard
 export KUBEFLOW_REPO=kubeflow_repo
 export KUBEFLOW_REPO="`pwd`/${KUBEFLOW_REPO}"
 
