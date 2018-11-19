@@ -9,7 +9,7 @@ export ZONE=us-central1-c
 
 export KUBEFLOW_REPO=kubeflow_repo
 export KUBEFLOW_REPO="`pwd`/${KUBEFLOW_REPO}"
-export KUBEFLOW_TAG=master
+export KUBEFLOW_TAG=v0.3.2
 
 if [[ ! -d "${KUBEFLOW_REPO}" ]]; then
   mkdir ${KUBEFLOW_REPO}
